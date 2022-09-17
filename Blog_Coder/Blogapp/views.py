@@ -9,10 +9,10 @@ from Blogapp.models import *
 # Create your views here.
 
 def home(request):
-    return render (request)
+    return render (request, "Blogapp/home.html")
 
 def about(request):
-    return render (request, )
+    return render (request, "Blogapp/about.html")
 
 def pages(request):
-    return render (request,)
+    return render (request, "Blogapp/pages.html")
