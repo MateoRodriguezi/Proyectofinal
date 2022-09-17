@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic.detail import DetailView
+from django.views.generic import ListView
 from http.client import HTTPResponse
 from typing import Dict
 from urllib.request import HTTPRedirectHandler
@@ -16,3 +18,7 @@ def about(request):
 
 def pages(request):
     return render (request, "Blogapp/pages.html")
+
+class ListaArticulos(ListView):
+    model = Articulo
+    template_name = 'Blogapp/pages.html'
