@@ -22,3 +22,7 @@ def pages(request):
 class ListaArticulos(ListView):
     model = Articulo
     template_name = 'Blogapp/pages.html'
+
+class DetalleArticulos(DetailView):
+    model = Articulo
+    template_name = 'Blogapp/page_id.html'

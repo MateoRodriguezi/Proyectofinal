@@ -1,12 +1,36 @@
-{% extends 'Blogapp/plantilla_base.html' %}
+{% extends 'BlogApp/plantilla_base.html' %}
 
 {% block contenido_base %}
 
-    {% for articulo in object_list%}
-        {{articulo.titulo}}
-        {{articulo.fecha}}
-        {{articulo.autor}}
+<table>
+    <tbody>
+      <tr>
+        <th>
+          <strong>Titulo</strong>
+        </th>
+        <th>
+          <strong>Fecha</strong>
+        </th>
+        <th>
+            <strong>Autor</strong>
+          </th>
+          <th>
+            <strong>Ver Detalle</strong>
+          </th>
+      </tr>
+
+    {% for articulo in object_list %}
         
-    {%endfor%}
+        <tr>
+            <td>{{articulo.titulo}}</td>
+            <td>{{articulo.fecha}}</td>
+            <td>{{articulo.autor}}</td>
+
+            <td><a href="{% url 'Detail' articulo.id %}"> Leer más</a></td>
+        </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock contenido_base %}
