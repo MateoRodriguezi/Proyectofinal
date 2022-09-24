@@ -2,6 +2,8 @@
 
 {% block contenido_base %}
 
+<a href="{% url 'New'  %}"> Crear Articulo</a>
+
 <table>
     <tbody>
       <tr>
@@ -17,16 +19,24 @@
           <th>
             <strong>Ver Detalle</strong>
           </th>
+          <th>
+            <strong>Editar</strong>
+          </th>
+          <th>
+            <strong>Eliminar</strong>
+          </th>
       </tr>
 
     {% for articulo in object_list %}
-        
+      
         <tr>
             <td>{{articulo.titulo}}</td>
             <td>{{articulo.fecha}}</td>
             <td>{{articulo.autor}}</td>
 
             <td><a href="{% url 'Detail' articulo.id %}"> Leer más</a></td>
+            <td><a href="{% url 'Edit' articulo.id %}"> Editar</a></td>
+            <td><a href="{% url 'Delete' articulo.id %}"> Eliminar</a></td>
         </tr>
 
     {% endfor %}
