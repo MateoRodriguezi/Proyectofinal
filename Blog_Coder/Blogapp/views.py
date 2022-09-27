@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
-from django.views.generic.edit import UpdateView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from http.client import HTTPResponse
 from typing import Dict
@@ -23,24 +21,24 @@ def about(request):
 def pages(request):
     return render (request, "Blogapp/pages.html")
 
-class ListaArticulos(ListView):
+class ArticuloListView(ListView):
     model = Articulo
     template_name = 'Blogapp/pages.html'
 
-class DetalleArticulos(DetailView):
+class ArticuloDetailView(DetailView):
     model = Articulo
     template_name = 'Blogapp/page_id.html'
 
-class CrearArticulo(CreateView):
+class ArticuloCreateView(CreateView):
     model = Articulo
     succes_url = "/Blogapp/pages"
     fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo', 'imagen']
 
-class EditarArticulo(UpdateView):
+class ArticuloUpdateView(UpdateView):
     model = Articulo
     succes_url = "/Blogapp/pages"
     fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo', 'imagen']
 
-class EliminarArticulo(DeleteView):
+class ArticuloDeleteView(DeleteView):
     model = Articulo
     succes_url = "/Blogapp/pages"

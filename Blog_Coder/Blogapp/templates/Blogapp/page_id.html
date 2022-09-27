@@ -2,15 +2,19 @@
 
 {% block contenido_base %}
 
-<p>Titulo: {{object.titulo}}</p>
-<p>Subtitulo: {{object.sub_titulo}}</p>
-<p>Fecha: {{object.fecha}}</p>
-<p>Autor: {{object.autor}}</p>
-<p>Contacto: {{object.email_autor}}</p>
-<p>Cuerpo: {{object.cuerpo}}</p>
-{% comment %} <p>Imagen: {{object.imagen.url}}</p> {% endcomment %}
-<p>
-    <a href="{% url 'Articulos' %}"> Regresar </a>
-</p>
+
+<ul>
+    <li>Titulo: {{object.titulo}}</li>
+    <li>Subtitulo: {{object.sub_titulo}}</li>
+    <li>Fecha: {{object.fecha}}</li>
+    <li>Autor: {{object.autor}}</li>
+    <li>Contacto: {{object.email_autor}}</li>
+    <li>{{object.cuerpo|safe}}</li>
+    {% comment %} <p>Imagen: {{object.imagen.url}}</p> {% endcomment %}
+    <br>
+    <p>
+        <a href="{% url 'Articulos' %}"> Regresar </a>
+    </p>
+</ul>
 
 {% endblock contenido_base %}

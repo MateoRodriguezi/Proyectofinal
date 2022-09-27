@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout, authenticate
 
 def login_request(request):
@@ -16,16 +16,30 @@ def login_request(request):
             if user is not None:
                 login(request, user)
 
-                return render (request, 'Userapp/inicio.html', {"mensaje":f"Bienvenido {usuario}"})
+                return render (request, 'Blogapp/home.html', {"mensaje":f"Bienvenido {usuario}"})
             else:
-                return render (request, 'Userapp/inicio.html', {"mensaje":f"Error, datos incorrectos"})
+                return render (request, 'Blogapp/home.html', {"mensaje":f"Error, datos incorrectos"})
         
-    else:
-            return render (request, 'Userapp/inicio.html', {"mensaje":f"Error, formulario erroneo"})
+        else:
+            return render (request, 'Blogapp/home.html', {"mensaje":f"Error, formulario erroneo"})
 
     form = AuthenticationForm()
 
     return render (request, 'Userapp/login.html', {'form':form})
 
+def register_request(request):
 
+    if request.method == "POST":
 
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+
+            username = form.cleaned_data['username']
+            form.save()
+            return render (request, 'Blogapp/home.html', {"mensaje": "Usuario creado exitosamente"})
+
+    else:
+        form = UserCreationForm()
+
+    return render (request, 'Userapp/registro.html', {"form": form})

@@ -2,9 +2,24 @@
 
 {% block contenido_base %}
 
-<a href="{% url 'New'  %}"> Crear Articulo</a>
+<style>
+  table.pages-table {
+    border: 3px solid;
+  }
+  th,
+  td{
+    border: 1px solid;
+    padding: 5px 10px;
+  }
+</style>
 
-<table>
+<div>
+  <a href="{% url 'New'  %}"> Crear Articulo</a>
+  <br>
+  <br>
+</div>
+
+<table class="pages-table">
     <tbody>
       <tr>
         <th>
@@ -42,5 +57,8 @@
     {% endfor %}
   </tbody>
 </table>
+
+<br>
+<br>
 
 {% endblock contenido_base %}
