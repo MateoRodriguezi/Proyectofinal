@@ -30,8 +30,12 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Acerca de' %}"> Acerca de </a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Articulos' %}"> Articulos </a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}">Sign up</a></li>
+                        {% if user.is_authenticated %}
+                        <a class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Logout</a></a>
+                        {% else %}
+                        <a class="nav-item"><a class="nav-link" href="{% url 'Register' %}">Sign up</a></a>
+                        <a class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Login</a></a>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
                     </ul>
                 </div>

@@ -12,37 +12,38 @@
     padding: 5px 10px;
   }
 </style>
+    
+    {% if user.is_authenticated%}
 
-<div>
-  <a href="{% url 'New'  %}"> Crear Articulo</a>
-  <br>
-  <br>
-</div>
+      <div>
+        <a href="{% url 'New'  %}"> Crear Articulo</a>
+        <br>
+        <br>
+      </div>
+      <table class="pages-table">
+        <tbody>
+          <tr>
+            <th>
+              <strong>Titulo</strong>
+            </th>
+            <th>
+              <strong>Fecha</strong>
+            </th>
+            <th>
+                <strong>Autor</strong>
+              </th>
+              <th>
+                <strong>Ver Detalle</strong>
+              </th>
+              <th>
+                <strong>Editar</strong>
+              </th>
+              <th>
+                <strong>Eliminar</strong>
+              </th>
+          </tr>
 
-<table class="pages-table">
-    <tbody>
-      <tr>
-        <th>
-          <strong>Titulo</strong>
-        </th>
-        <th>
-          <strong>Fecha</strong>
-        </th>
-        <th>
-            <strong>Autor</strong>
-          </th>
-          <th>
-            <strong>Ver Detalle</strong>
-          </th>
-          <th>
-            <strong>Editar</strong>
-          </th>
-          <th>
-            <strong>Eliminar</strong>
-          </th>
-      </tr>
-
-    {% for articulo in object_list %}
+      {% for articulo in object_list %}
       
         <tr>
             <td>{{articulo.titulo}}</td>
@@ -53,8 +54,17 @@
             <td><a href="{% url 'Edit' articulo.id %}"> Editar</a></td>
             <td><a href="{% url 'Delete' articulo.id %}"> Eliminar</a></td>
         </tr>
+      {% endfor %}
 
-    {% endfor %}
+    {% else %}
+        <div>
+          <h4> Para ver el contenido de los articulos debe registrarse o iniciar sesión: </h4>
+          <h5>
+          <a class="nav-link" href="{% url 'Register' %}">Sign up</a>
+          <a class="nav-link" href="{% url 'Login' %}">Login</a>
+          </h5>
+        </div>
+    {% endif %}
   </tbody>
 </table>
 

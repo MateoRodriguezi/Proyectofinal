@@ -3,6 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from Userapp.forms import UserRegisterForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -31,6 +33,7 @@ def login_request(request):
 
     return render (request, 'Userapp/login.html', {'form':form})
 
+
 def register_request(request):
 
     if request.method == "POST":
@@ -47,3 +50,6 @@ def register_request(request):
         form = UserRegisterForm()
 
     return render (request, 'Userapp/registro.html', {"form": form})
+
+class CustomLogoutView(LogoutView):
+    template_name = 'Userapp/logout.html'

@@ -7,13 +7,17 @@ from typing import Dict
 from urllib.request import HTTPRedirectHandler
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from Blogapp.models import *
 
 # Create your views here.
 
+@login_required
 def home(request):
     return render (request, "Blogapp/home.html")
 
+@login_required
 def about(request):
     return render (request, "Blogapp/about.html")
 
