@@ -10,7 +10,7 @@
 
 
     <form method='post'>{% csrf_token%}
-       <p><b> Seguro que deseas borrar el articulo "{{object.titulo}}"? </b></p>
+       <p><b> Seguro que deseas borrar el articulo "{{object}}"? </b></p>
         <input type="submit" value="Confirmar" />
     </form>
     

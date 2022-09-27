@@ -12,3 +12,6 @@ class Articulo(models.Model):
     email_autor = models.EmailField()
     cuerpo = RichTextField(blank=True, null= True,)
     imagen = models.ImageField(upload_to='imagenes', null=True, blank = True)
+
+    def __str__(self):
+        return f'{self.titulo}'

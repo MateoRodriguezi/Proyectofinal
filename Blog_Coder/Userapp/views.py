@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login,logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from Userapp.forms import UserRegisterForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+
+
 
 def login_request(request):
 
@@ -31,7 +35,7 @@ def register_request(request):
 
     if request.method == "POST":
 
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
 
         if form.is_valid():
 
@@ -40,6 +44,6 @@ def register_request(request):
             return render (request, 'Blogapp/home.html', {"mensaje": "Usuario creado exitosamente"})
 
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
 
     return render (request, 'Userapp/registro.html', {"form": form})
