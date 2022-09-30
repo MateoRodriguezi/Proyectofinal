@@ -13,34 +13,44 @@ from Blogapp.models import *
 
 # Create your views here.
 
+
 @login_required
 def home(request):
-    return render (request, "Blogapp/home.html")
+    return render(request, "Blogapp/home.html")
+
 
 @login_required
 def about(request):
-    return render (request, "Blogapp/about.html")
+    return render(request, "Blogapp/about.html")
+
 
 def pages(request):
-    return render (request, "Blogapp/pages.html")
+    return render(request, "Blogapp/pages.html")
+
 
 class ArticuloListView(ListView):
     model = Articulo
     template_name = 'Blogapp/pages.html'
 
+
 class ArticuloDetailView(DetailView):
     model = Articulo
     template_name = 'Blogapp/page_id.html'
 
+
 class ArticuloCreateView(CreateView):
     model = Articulo
     succes_url = reverse_lazy('Articulos')
-    fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo', 'imagen']
+    fields = ['titulo', 'sub_titulo', 'fecha',
+              'autor', 'email_autor', 'cuerpo', 'imagen']
+
 
 class ArticuloUpdateView(UpdateView):
     model = Articulo
     succes_url = reverse_lazy('Articulos')
-    fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo', 'imagen']
+    fields = ['titulo', 'sub_titulo', 'fecha',
+              'autor', 'email_autor', 'cuerpo', 'imagen']
+
 
 class ArticuloDeleteView(DeleteView):
     model = Articulo

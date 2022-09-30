@@ -7,11 +7,10 @@ from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
 def login_request(request):
 
     if request.method == "POST":
-        form = AuthenticationForm(request, data = request.POST)
+        form = AuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
             usuario = form.cleaned_data.get('username')
@@ -22,16 +21,16 @@ def login_request(request):
             if user is not None:
                 login(request, user)
 
-                return render (request, 'Blogapp/home.html', {"mensaje":f"Bienvenido {usuario}"})
+                return render(request, 'Blogapp/home.html', {"mensaje": f"Bienvenido {usuario}"})
             else:
-                return render (request, 'Blogapp/home.html', {"mensaje":f"Error, datos incorrectos"})
-        
+                return render(request, 'Blogapp/home.html', {"mensaje": f"Error, datos incorrectos"})
+
         else:
-            return render (request, 'Blogapp/home.html', {"mensaje":f"Error, formulario erroneo"})
+            return render(request, 'Blogapp/home.html', {"mensaje": f"Error, formulario erroneo"})
 
     form = AuthenticationForm()
 
-    return render (request, 'Userapp/login.html', {'form':form})
+    return render(request, 'Userapp/login.html', {'form': form})
 
 
 def register_request(request):
@@ -44,12 +43,13 @@ def register_request(request):
 
             username = form.cleaned_data['username']
             form.save()
-            return render (request, 'Blogapp/home.html', {"mensaje": "Usuario creado exitosamente"})
+            return render(request, 'Blogapp/home.html', {"mensaje": "Usuario creado exitosamente"})
 
     else:
         form = UserRegisterForm()
 
-    return render (request, 'Userapp/registro.html', {"form": form})
+    return render(request, 'Userapp/registro.html', {"form": form})
+
 
 class CustomLogoutView(LogoutView):
     template_name = 'Userapp/logout.html'

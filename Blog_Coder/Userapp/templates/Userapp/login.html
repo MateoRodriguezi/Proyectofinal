@@ -1,12 +1,12 @@
-{% extends 'BlogApp/plantilla_base.html' %}
+{% extends 'BlogApp/plantilla_base.html' %} {% block contenido_base %}
 
-{% block contenido_base %}
+<div>
+  <form action="" method="POST">
+    {% csrf_token %} {{form.as_p}}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-
-    <button type="submit"> Iniciar Sesión </button>
-</form>
+    <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+  </form>
+  <br />
+</div>
 
 {% endblock contenido_base %}
