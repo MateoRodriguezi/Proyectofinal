@@ -2,11 +2,19 @@
 
 {% block contenido_base %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
+<div class="container" style=" width: 50vw; margin-left : 10vw;">
 
-    <button type="submit"> Sign up! </button>
-</form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button class="btn btn-primary" type="submit"> Sign up! </button>
+    </form>
+    <br>
+
+
+
 
 {% endblock contenido_base %}
+
+</div>

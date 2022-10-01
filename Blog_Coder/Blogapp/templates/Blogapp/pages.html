@@ -1,75 +1,41 @@
-{% extends 'BlogApp/plantilla_base.html' %} {% block contenido_base %}
+{% extends 'BlogApp/plantilla_base.html' %} 
+  {% block contenido_base %}
 
-<style>
-  table.pages-table {
-    border: 3px solid;
-  }
-  th,
-  td {
-    border: 1px solid;
-    padding: 5px 10px;
-  }
-</style>
+    <div class="container" style=" width: 50vw; margin-left : 10vw;">
 
-<div class="card mb-4" style=" width: 50vw; margin-left : 30vw;">
-  {% if user.is_authenticated%}
-    <div>
-      <a href="{% url 'New'  %}"> Crear Articulo</a>
-      <br />
-      <br />
-    </div>
-    <table class="pages-table">
-      <tbody>
-        <tr>
-          <th>
-            <strong>Titulo</strong>
-          </th>
-          <th>
-            <strong>Fecha</strong>
-          </th>
-          <th>
-            <strong>Autor</strong>
-          </th>
-          <th>
-            <strong>Ver Detalle</strong>
-          </th>
-          <th>
-            <strong>Editar</strong>
-          </th>
-          <th>
-            <strong>Eliminar</strong>
-          </th>
-        </tr>
+      {% if user.is_authenticated%}
+          <div>
+            <a class="btn btn-primary" href="{% url 'New'  %}"> <b> Crear Articulo </b></a>
+            <br />
+            <br />
+          </div>
+      {% endif %}
 
-        {% for articulo in object_list %}
+        <div class="card mb-4" style=" width: 50vw; margin-left :10vw;">
+          {% for articulo in object_list %}
+        
+              <br>
+              <div class="small text-muted">{{articulo.fecha}}</div>
+              <br>
+              {% comment %} <a>{{articulo.imagen}}</a> {% endcomment %}
+              <h3>{{articulo.titulo}}</h3>
+              <h6>{{articulo.autor}} </h6>
+              <p class="card-text">{{articulo.cuerpo|slice:":200"|safe}}</p>
+              <a class="btn btn-primary" href="{% url 'Detail' articulo.id %}">Leer mas →</a>
+              <br>
+              <br>
+              {% if user.is_authenticated%}
+                <a class="btn btn-primary" href="{% url 'Edit' articulo.id %}">Editar →</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" href="{% url 'Delete' articulo.id %}">Eliminar  →</a>
+                <br>
+                <br>
+              {% endif %}
+              <br>
 
-        <tr>
-          <td>{{articulo.titulo}}</td>
-          <td>{{articulo.fecha}}</td>
-          <td>{{articulo.autor}}</td>
-
-          <td><a href="{% url 'Detail' articulo.id %}"> Leer más</a></td>
-          <td><a href="{% url 'Edit' articulo.id %}"> Editar</a></td>
-          <td><a href="{% url 'Delete' articulo.id %}"> Eliminar</a></td>
-        </tr>
-        {% endfor %} {% else %}
-        <div>
-          <h4>
-            Para ver el contenido de los articulos debe registrarse o iniciar
-            sesión:
-          </h4>
-          <h5>
-            <a class="nav-link" href="{% url 'Register' %}">Sign up</a>
-            <a class="nav-link" href="{% url 'Login' %}">Login</a>
-          </h5>
-        </div>
-  {% endif %}
-      </tbody>
-    </table>
+          {% endfor %} 
+      </div>
+  {% endblock contenido_base %}
 
 
-    <br />
-    <br />
-</div>
-
-{% endblock contenido_base %}

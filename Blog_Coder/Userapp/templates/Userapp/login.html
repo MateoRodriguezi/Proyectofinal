@@ -1,6 +1,6 @@
 {% extends 'BlogApp/plantilla_base.html' %} {% block contenido_base %}
 
-<div>
+<div class="container" style=" width: 50vw; margin-left : 10vw;">
   <form action="" method="POST">
     {% csrf_token %} {{form.as_p}}
 

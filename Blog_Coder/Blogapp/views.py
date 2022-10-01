@@ -31,13 +31,13 @@ class ArticuloDetailView(DetailView):
 
 class ArticuloCreateView(CreateView, LoginRequiredMixin):
     model = Articulo
-    fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo', 'imagen']
+    fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo']
     succes_url = reverse_lazy('Inicio')
 
 class ArticuloUpdateView(UpdateView, LoginRequiredMixin):
     model = Articulo
     succes_url = reverse_lazy('Inicio')
-    fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo', 'imagen']
+    fields = ['titulo', 'sub_titulo', 'fecha', 'autor', 'email_autor', 'cuerpo']
 
 class ArticuloDeleteView(DeleteView, LoginRequiredMixin):
     model = Articulo

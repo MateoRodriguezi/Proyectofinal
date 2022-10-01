@@ -1,5 +1,27 @@
-{% extends 'BlogApp/plantilla_base.html' %}
+{% extends 'Blogapp/plantilla_base.html' %}
 
 {% block contenido_base %}
-<h1> Te has deslogueado </h1>
+
+{{mensaje}}
+
+<!-- Page content-->
+"
+<div class="container" style=" width: 50vw; margin-left : 10vw;">
+    <div class="row">
+        <!-- Blog entries-->
+
+        <div class="col-lg-8">
+            <!-- Featured blog post-->
+
+            <div class="card mb-4" style=" width: 50vw; margin-left : 10vw;">
+                <h4 style="text-align:center"> Muchas gracias por visitar nuestro Blog! </h4>
+                <h5 style="text-align:center"> Te has deslogueado </h5>
+            </div>
+
+            <!-- Nested row for non-featured blog posts-->
+            <div class="row">
+                <div class="col-lg-6">
+    </div>
+</div>
+
 {% endblock contenido_base %}

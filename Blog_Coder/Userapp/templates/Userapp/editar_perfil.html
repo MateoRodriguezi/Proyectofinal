@@ -1,0 +1,35 @@
+{% extends 'BlogApp/plantilla_base.html' %}
+
+{% block contenido_base %}
+
+<div class="container" style=" width: 50vw; margin-left : 10vw;">
+    <div class="row">
+        <!-- Blog entries-->
+
+        <div class="col-lg-8">
+            <!-- Featured blog post-->
+
+            <div class="card mb-4" style=" width: 50vw; margin-left : 10vw;">
+                <h3> <u>Editar perfil del usuario:</u> {{usuario}} </h3>
+                <form action="" method="POST">
+    
+                    {% csrf_token %}
+                
+                    <table>
+                
+                        {{ miFormulario.as_table }}
+                    
+                    </table>
+                
+                    <button class="btn btn-primary" type="submit"> Confirmar </button>
+                
+                </form>
+            </div>
+
+            <!-- Nested row for non-featured blog posts-->
+            <div class="row">
+                <div class="col-lg-6">
+    </div>
+</div>
+
+{% endblock %}
