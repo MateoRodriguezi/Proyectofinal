@@ -11,6 +11,12 @@
           </div>
       {% endif %}
 
+      {% if not object_list %}
+          <div class="container" style=" width: 50vw; margin-left : 28vw;">
+            <h3> No hay entradas aún! </h3>
+          </div>
+      {% endif %}
+
         <div class="card mb-4" style=" width: 50vw; margin-left :10vw;">
           {% for articulo in object_list %}
         

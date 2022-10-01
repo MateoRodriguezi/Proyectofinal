@@ -5,7 +5,7 @@ from Blogapp import views
 
 urlpatterns = [
     path('', views.home, name='Inicio'),
-    path('pages', views.ArticuloListView.as_view(), name='Articulos'),
+    path('pages/', views.ArticuloListView.as_view(), name='Articulos'),
     path('about/', views.about, name='Acerca de'),
     path('pages/<int:pk>', views.ArticuloDetailView.as_view(), name="Detail"),
     path(r'^nuevo$', views.ArticuloCreateView.as_view(model=Articulo, success_url="/blog-viajes/pages/"), name="New"),
