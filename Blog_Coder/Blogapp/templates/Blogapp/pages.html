@@ -11,63 +11,65 @@
   }
 </style>
 
-{% if user.is_authenticated%}
-
-<div>
-  <a href="{% url 'New'  %}"> Crear Articulo</a>
-  <br />
-  <br />
-</div>
-<table class="pages-table">
-  <tbody>
-    <tr>
-      <th>
-        <strong>Titulo</strong>
-      </th>
-      <th>
-        <strong>Fecha</strong>
-      </th>
-      <th>
-        <strong>Autor</strong>
-      </th>
-      <th>
-        <strong>Ver Detalle</strong>
-      </th>
-      <th>
-        <strong>Editar</strong>
-      </th>
-      <th>
-        <strong>Eliminar</strong>
-      </th>
-    </tr>
-
-    {% for articulo in object_list %}
-
-    <tr>
-      <td>{{articulo.titulo}}</td>
-      <td>{{articulo.fecha}}</td>
-      <td>{{articulo.autor}}</td>
-
-      <td><a href="{% url 'Detail' articulo.id %}"> Leer más</a></td>
-      <td><a href="{% url 'Edit' articulo.id %}"> Editar</a></td>
-      <td><a href="{% url 'Delete' articulo.id %}"> Eliminar</a></td>
-    </tr>
-    {% endfor %} {% else %}
+<div class="card mb-4" style=" width: 50vw; margin-left : 30vw;">
+  {% if user.is_authenticated%}
     <div>
-      <h4>
-        Para ver el contenido de los articulos debe registrarse o iniciar
-        sesión:
-      </h4>
-      <h5>
-        <a class="nav-link" href="{% url 'Register' %}">Sign up</a>
-        <a class="nav-link" href="{% url 'Login' %}">Login</a>
-      </h5>
+      <a href="{% url 'New'  %}"> Crear Articulo</a>
+      <br />
+      <br />
     </div>
-    {% endif %}
-  </tbody>
-</table>
+    <table class="pages-table">
+      <tbody>
+        <tr>
+          <th>
+            <strong>Titulo</strong>
+          </th>
+          <th>
+            <strong>Fecha</strong>
+          </th>
+          <th>
+            <strong>Autor</strong>
+          </th>
+          <th>
+            <strong>Ver Detalle</strong>
+          </th>
+          <th>
+            <strong>Editar</strong>
+          </th>
+          <th>
+            <strong>Eliminar</strong>
+          </th>
+        </tr>
 
-<br />
-<br />
+        {% for articulo in object_list %}
+
+        <tr>
+          <td>{{articulo.titulo}}</td>
+          <td>{{articulo.fecha}}</td>
+          <td>{{articulo.autor}}</td>
+
+          <td><a href="{% url 'Detail' articulo.id %}"> Leer más</a></td>
+          <td><a href="{% url 'Edit' articulo.id %}"> Editar</a></td>
+          <td><a href="{% url 'Delete' articulo.id %}"> Eliminar</a></td>
+        </tr>
+        {% endfor %} {% else %}
+        <div>
+          <h4>
+            Para ver el contenido de los articulos debe registrarse o iniciar
+            sesión:
+          </h4>
+          <h5>
+            <a class="nav-link" href="{% url 'Register' %}">Sign up</a>
+            <a class="nav-link" href="{% url 'Login' %}">Login</a>
+          </h5>
+        </div>
+  {% endif %}
+      </tbody>
+    </table>
+
+
+    <br />
+    <br />
+</div>
 
 {% endblock contenido_base %}

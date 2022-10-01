@@ -23,7 +23,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <<a class = "navbar-brand" href = "{% url 'Inicio' %}" >Listos para comenzar a viajar?!</a>>
+                <a class = "navbar-brand" href = "{% url 'Inicio' %}" > Comencemos a viajar!</a>>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -55,34 +55,27 @@
 
         {% endblock contenido_base %}
 
-        <!-- Page content-->
-
-        <div class="container">
-            <div class="row">
-                <!-- Blog entries-->
-
-                <div class="col-lg-8">
-                    <!-- Featured blog post-->
-
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://www.entornoturistico.com/wp-content/uploads/2016/09/Productos-y-servicios-de-las-agencias-de-viajes-660x330.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2022</div>
-                            <h2 class="card-title">Featured Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        </div>
-                    </div>
-
-                    <!-- Nested row for non-featured blog posts-->
-                    <div class="row">
-                        <div class="col-lg-6">
-            </div>
-        </div>
+        
         <!-- Footer-->
 
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Proyecto final - Coderhouse</p></div>
+        <footer class="py-5 bg-dark" style=" width: 50vw; margin-left : 10vw;">
+            <div class="container"><h5 class="m-0 text-center text-white">Proyecto final - Coderhouse</h5></div>
+            <br>
+            <br>
+            <a style=" width: 50vw; margin-left : 10vw;" href="https://www.instagram.com/viajawanderlust/">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA1JJREFUaEPtmb+uT0EQx7/3CRAPwH0ClCrUCrQiQS9BNKrr3ih0/sQDoJDo8AToNIInQEN5SfTkIzsy1tl/5x8nOZuc3HtydmfnO/Od2Zn9bWjhY2Ph+msF8K89uHpgiR44KOmYpNOS9krinafP+CiJ56ukZ5JehfdqWS0UQtkbkq5US+838a6knQCqKKEWANa+M8DSRUWiCXjkYvBKdm0NAJR/Gkn5FITj/net2kXzD0viOS7pQPTtTAlECQC0eess/y1w/+VApVPLtwNN7Tue2MzRqQQAPl4O0lCeYEXolANvYDQb93JxlwOAsh+coBOSxrb8fkkXJJ2U9CYE73dJsSfwAnT9a+QAkG0IXMb7wNOxLX9J0n0n9Laka+EdT+8J/1+VBBuaAJCXT4UVWTdmUEEHRirQb0m67ta/lnQ0vPv9n4fYawIAXTiwGMVsEOYR9MQMGYXHD+TxYAyLo7OSHrtJW5JuhndPIw64WN6vaTkKwX87YWv4zwYPKs4KuEyOt3g6J+mQpM+Snkj6EgB4CrOGOGjywA83uwQgDroMq35/4rRlXWpgkBfuY6excx6oBRBvxJ6PJD103CcWyDbnI21zhhkVwJFEILYedChFcFp2gRrI7jpbRgWQ8lRMnRLVcECsWIpKswDwmQraQJOaAb2MTqkMMwuA2jiJQdUoVzMnm0a9cl0UimuWfQ11ErGz61B1lQorgJIHMOCiKQSAxQRxKj0uJo2mABCMVJrWCnIgUfil+gYCk/aUdQxaU5LB5AdZy5GPYuR5HvoIBsUaZ0R8TrTInawWQsH/spijTjFq1JYIWD2+WYgPMWiDJ0rtqS+n6ceNdn/Iy1WjfRsaNobr1gzZhpQMyKQ1rLkYGNzQzNFS5uomv3+vjsy7kExD2TvXgC50hEabXk19fK1CGwjH5xhxUkj1I8VfaPzFFrxFUOf9zIio4iIxeSPBnqWbOVyIwtZBAQLrcLMwxeD22/fJxdvAEgCU7LrcBRRBNsblLhkLutpfb5gibWsAGAj4b56YwvpeJpbHE523cX5iLQDWQCeE2mXvVCDgPBmwKtZaAJjCuBta2U9M1DlDBvUSscUhBy2bfm/oA2CIsqOvXQGMbtJGgasHGg02+vTFe+AnoqfYMXT5/OYAAAAASUVORK5CYII=" 
+                alt="instagram">
+            </a>
+            <a style=" width: 50vw; margin-left : 10vw;" href="https://www.facebook.com/wanderlustint">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAXJJREFUaEPtmetNAzEQhL90QAfQAdABVAAlUAJUAKkESqADKAEqACoAKgga6SJFztrnw3exLa2l/Mk5uZmdfdorOl+rzvHjBGor6Aq0rMA1cA+cVQb5CdwBzxaOlAt9ACeVwW9f/wacTyWwaQT8FoZp7JQCTmBmBZtS4At4BRSg4boBjo3vmyDwC9wCTwl1HobsF26pTkDgldV+RlyrWQKXg9uMhUaTBN4nFMQmCawBAbPWVUDuAtCnqRiIuc9LBGx20T1UIbMIHAHfYwGx87xqFrIIyE2kQO5yArmWsvZ1pYDahLBFUPVVS7y7VNTUNjTXSqRSZo6KsTnkYDFQSiDWxndBQG4lBarWgRIFUqm1CwUU1I+1Feg+jToBd6HBAnMeq3TVSngMeAx4DOz7gAcx2Pd5NYf6xWdiTVXWIWvOUBLuKXWh6MFYSgFdMekw6vQ/iIPflBDQiKqRdPIV0wy4l/8Lv2Zd3sbpN7gCrkChBf4Axc9tMWih7r4AAAAASUVORK5CYII="
+                alt="facebook"/>
+            </a>
+            <a style=" width: 50vw; margin-left : 10vw;" href="https://www.tumblr.com/tagged/VIAJES?sort=top">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAXZJREFUaEPtmNFNxDAMhr+bADYAJjhGgAlgA9iAYwOYADaAEdgANgAm4EZgA9AvFak6Jb3GCYeD7JeqD279+bfdxgs6t0Xn8RMAf61gKPBfFTgBnhNwp8BLS+jfKqEVcNczwBNw1jPAJ7DXK8Al8JCpc/c9sA+8Aoe9AjwCFxNTxrUCuckz5nEJoLLRyFTtbzNXAKpzjcobQBBz7A3QhEqZ4IrN+iE7Hpq1+IUTDqZYTE5A7lehBsgUi8kpANI6mZJpcgoFHCiQCmFOY7v6DmxCBIBlBlubOErIku2UTygwyko0saWsooQKS+gauLdkOuezawVuhwNQM4ZdA+g0djRxKisGawmgl3/NiGA9qKDr2N4tYK0BFNTBDIjcmbh48dsaYNteaIrN9KfaGkCbio+eFVDsGpNXBggXCvzEbSklVwAC0apRS6/Umt1tE28Gpo3d+bAEUH/ofpkpL3cKGNqg3KX1FCqPoNIjACoTWO0eClSnsPIB314QRzGWpodtAAAAAElFTkSuQmCC"
+                alt="tumblr"/>
+            </a>
         </footer>
+        
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -92,3 +85,4 @@
     </body>
 
 </html>
+
