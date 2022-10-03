@@ -27,6 +27,7 @@
               <img src="{{ articulo.imagen.url }}" alt="Foto no disponible">
               {% endif %}
               <h3>{{articulo.titulo}}</h3>
+              <h5>{{articulo.sub_titulo}}</h5>
               <h6>{{articulo.autor}} </h6>
               <p class="card-text">{{articulo.cuerpo|slice:":200"|safe}}</p>
               <a class="btn btn-primary" href="{% url 'Detail' articulo.id %}">Leer mas →</a>

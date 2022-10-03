@@ -22,7 +22,7 @@ class ArticuloTestCase(TestCase):
         # Test 1: Verifica si el max_lenght del campo cuerpo coincide con el max_lenght del modelo
         articulo_test = Articulo.objects.get(id=1)
         max_length = articulo_test._meta.get_field('cuerpo').max_length
-        self.assertEqual(max_length, 128)
+        self.assertEqual(max_length, 5000)
 
     def test_object_name_is_title(self):
         # Test 2: Verifica si el def __str__(self) del modelo coincide con el titulo
