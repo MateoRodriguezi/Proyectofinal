@@ -11,7 +11,7 @@ class Articulo(models.Model):
     fecha = models.DateField()
     autor = models.CharField(max_length=128)
     email_autor = models.EmailField()
-    cuerpo = RichTextField(blank=True, null=True,)
+    cuerpo = RichTextField(max_length=128, blank=True, null=True,)
     imagen = models.ImageField(upload_to='imagenes', null=True, blank=True)
 
     def __str__(self):
