@@ -5,9 +5,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.detail import DetailView
+from django.views.generic import UpdateView
 from django.contrib.auth.models import User
 from Userapp.forms import UserEditForm
+from Userapp.models import Perfil
+from django.urls import reverse_lazy
 
 
 
@@ -81,3 +83,13 @@ def EditarPerfil(request):
         miFormulario = UserEditForm(initial={'email':usuario.email})
 
     return render(request, "UserApp/editar_perfil.html", {"miFormulario":miFormulario, "usuario":usuario})
+
+class PerfilUpdate(LoginRequiredMixin, UpdateView):
+    model = Perfil
+    fields = ['nombre', 'domicilio', 'telefono', 'bio', 'link_web']
+    template_name = 'Userapp/perfil_form.html'
+    success_url = reverse_lazy('Inicio')
+
+    def get_object(self):
+        profile, created = Perfil.objects.get_or_create(user=self.request.user)
+        return profile
