@@ -1,6 +1,6 @@
 {% extends 'Blogapp/plantilla_base.html' %} {% block contenido_base %}
 
-  
+
 <ul>
   <li>Titulo: {{object.titulo}}</li>
   <li>Subtitulo: {{object.sub_titulo}}</li>
@@ -8,7 +8,14 @@
   <li>Autor: {{object.autor}}</li>
   <li>Contacto: {{object.email_autor}}</li>
   <li>{{object.cuerpo|safe}}</li>
-  {% comment %} <p>Imagen: {{object.imagen.url}}</p> {% endcomment %}
+  {% if articulo.imagen %}
+    <img src="{{ articulo.imagen.url }}" alt="Foto">  
+  {% else %}
+    <div class="text-center my-5" style=" width: 50vw; margin-left : 20vw;">
+      <br>
+      <h5> Aun no hay imagen cargada </h5>
+    </div>
+  {% endif %}         
   <br />
   <p>
     <a href="{% url 'Articulos' %}"> Regresar </a>

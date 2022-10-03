@@ -23,7 +23,9 @@
               <br>
               <div class="small text-muted">{{articulo.fecha}}</div>
               <br>
-              {% comment %} <a>{{articulo.imagen}}</a> {% endcomment %}
+              {% if articulo.imagen %}
+              <img src="{{ articulo.imagen.url }}" alt="Foto no disponible">
+              {% endif %}
               <h3>{{articulo.titulo}}</h3>
               <h6>{{articulo.autor}} </h6>
               <p class="card-text">{{articulo.cuerpo|slice:":200"|safe}}</p>
